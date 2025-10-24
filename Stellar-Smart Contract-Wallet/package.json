@@ -1,0 +1,50 @@
+{
+  "name": "stellar-procurement-dapp",
+  "version": "1.0.0",
+  "description": "Stellar Smart Contract Wallets + vLEI Procurement dApp - Phase 1 MVP",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "contract:build": "cd contracts && cargo build --target wasm32-unknown-unknown --release",
+    "contract:deploy": "cd contracts && stellar contract deploy --wasm target/wasm32-unknown-unknown/release/procurement.wasm --source-account BUYER_SECRET_KEY --network testnet",
+    "setup": "npm install && npm run contract:build"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@stellar/stellar-sdk": "^11.0.0",
+    "@stellar/freighter-api": "^1.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5",
+    "ts-loader": "^9.4.4",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "lucide-react": "^0.292.0",
+    "clsx": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
+  },
+  "keywords": [
+    "stellar",
+    "smart-contracts",
+    "passkeys",
+    "vlei",
+    "procurement",
+    "blockchain"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
