@@ -1,24 +1,24 @@
 {
-  "contexts/PaymentContext.tsx -> @/lib/mock-x402-client": {
-    "id": "contexts/PaymentContext.tsx -> @/lib/mock-x402-client",
+  "contexts\\PaymentContext.tsx -> @/lib/mock-x402-client": {
+    "id": "contexts\\PaymentContext.tsx -> @/lib/mock-x402-client",
     "files": [
       "static/chunks/_app-pages-browser_lib_mock-x402-client_ts.js"
     ]
   },
-  "contexts/PaymentContext.tsx -> @/lib/x402-service": {
-    "id": "contexts/PaymentContext.tsx -> @/lib/x402-service",
+  "contexts\\PaymentContext.tsx -> @/lib/x402-service": {
+    "id": "contexts\\PaymentContext.tsx -> @/lib/x402-service",
     "files": [
       "static/chunks/_app-pages-browser_lib_x402-service_ts.js"
     ]
   },
-  "contexts/VLEIContext.tsx -> @/lib/mock-signify-ts": {
-    "id": "contexts/VLEIContext.tsx -> @/lib/mock-signify-ts",
+  "contexts\\VLEIContext.tsx -> @/lib/mock-signify-ts": {
+    "id": "contexts\\VLEIContext.tsx -> @/lib/mock-signify-ts",
     "files": [
       "static/chunks/_app-pages-browser_lib_mock-signify-ts_ts.js"
     ]
   },
-  "contexts/WalletContext.tsx -> @/lib/mock-passkey-kit": {
-    "id": "contexts/WalletContext.tsx -> @/lib/mock-passkey-kit",
+  "contexts\\WalletContext.tsx -> @/lib/mock-passkey-kit": {
+    "id": "contexts\\WalletContext.tsx -> @/lib/mock-passkey-kit",
     "files": [
       "static/chunks/_app-pages-browser_lib_mock-passkey-kit_ts.js"
     ]
