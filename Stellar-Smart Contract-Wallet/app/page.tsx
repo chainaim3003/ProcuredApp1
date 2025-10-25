@@ -24,16 +24,15 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-stellar-900 dark:text-stellar-100 mb-4">
           Stellar Procurement dApp
         </h1>
-        
+
         {/* MARKETPLACE TAB - CENTERED AND PROMINENT */}
         <div className="flex justify-center mb-6">
           <button
             onClick={() => setPhase('marketplace')}
-            className={`px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 ${
-              phase === 'marketplace'
-                ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300'
-            }`}
+            className={`px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 ${phase === 'marketplace'
+              ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300'
+              }`}
           >
             🏪 MARKETPLACE
           </button>
@@ -43,61 +42,55 @@ export default function Home() {
         <div className="flex justify-center space-x-3 mb-4 flex-wrap gap-y-2">
           <button
             onClick={() => setPhase('phase1')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              phase === 'phase1'
-                ? 'bg-stellar-600 text-white'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${phase === 'phase1'
+              ? 'bg-stellar-600 text-white'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
           >
             Phase 1: MVP
           </button>
           <button
             onClick={() => setPhase('phase2')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              phase === 'phase2'
-                ? 'bg-stellar-600 text-white'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${phase === 'phase2'
+              ? 'bg-stellar-600 text-white'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
           >
             Phase 2: vLEI Integration
           </button>
           <button
             onClick={() => setPhase('phase3')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              phase === 'phase3'
-                ? 'bg-stellar-600 text-white'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${phase === 'phase3'
+              ? 'bg-stellar-600 text-white'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
           >
             Phase 3: X402 Payments
           </button>
           <button
             onClick={() => setPhase('production')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              phase === 'production'
-                ? 'bg-stellar-600 text-white'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${phase === 'production'
+              ? 'bg-stellar-600 text-white'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
           >
             🚀 Production App
           </button>
           <button
             onClick={() => setPhase('buyer')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              phase === 'buyer'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${phase === 'buyer'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
           >
             🛒 Buyer Dashboard
           </button>
           <button
             onClick={() => setPhase('seller')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              phase === 'seller'
-                ? 'bg-purple-600 text-white'
-                : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${phase === 'seller'
+              ? 'bg-purple-600 text-white'
+              : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
           >
             🏭 Seller Dashboard
           </button>
@@ -109,7 +102,7 @@ export default function Home() {
               🏪 Marketplace: Escrow V5 Trade Listings
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Browse available trades • Fund escrow • Algorand Escrow V5 contract • Stellar wallet
+              Browse available trades • Fund escrow • Escrow V5 contract • Stellar wallet
             </p>
           </>
         ) : phase === 'phase1' ? (
@@ -142,19 +135,19 @@ export default function Home() {
         ) : phase === 'buyer' ? (
           <>
             <p className="text-lg text-blue-700 dark:text-blue-300 mb-2">
-              🛒 Buyer Dashboard: AlgoTITANS Importer UI
+              🛒 Buyer Dashboard
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              EXACT AlgoTITANS ImporterDashboard • Stellar wallet • Create trades • My purchases
+              ImporterDashboard • Stellar wallet • Create trades • My purchases
             </p>
           </>
         ) : phase === 'seller' ? (
           <>
             <p className="text-lg text-purple-700 dark:text-purple-300 mb-2">
-              🏭 Seller Dashboard: AlgoTITANS Exporter UI
+              🏭 Seller Dashboard
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              EXACT AlgoTITANS ExporterDashboard • Stellar wallet • My instruments • Escrowed trades
+              ExporterDashboard • Stellar wallet • My instruments • Escrowed trades
             </p>
           </>
         ) : (
@@ -168,7 +161,7 @@ export default function Home() {
           </>
         )}
       </div>
-      
+
       {phase === 'marketplace' ? (
         <WalletProvider>
           <MarketplaceApp />
@@ -199,7 +192,7 @@ export default function Home() {
         </VLEIProvider>
       ) : phase === 'buyer' ? (
         <WalletProvider>
-          <BuyerApp 
+          <BuyerApp
             marketplaceService={new MarketplaceService()}
             onNavigateToMarketplace={() => setPhase('marketplace')}
           />

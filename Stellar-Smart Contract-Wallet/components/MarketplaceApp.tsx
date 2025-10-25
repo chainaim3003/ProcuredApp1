@@ -4,7 +4,7 @@
  * Marketplace Component - Escrow V5
  * 
  * EXACT COPY from AlgoTITANS EscrowV5Marketplace - Using Stellar wallet
- * Shows trades from Algorand Escrow V5 contract
+ * WITH FULL DARK MODE SUPPORT
  */
 import React, { useState, useEffect } from 'react'
 import { useWallet as useStellarWallet } from '@/contexts/WalletContext'
@@ -21,13 +21,13 @@ const TRADE_STATES = {
   COMPLETED: 5
 }
 
-const STATE_LABELS: { [key: number]: { label: string; color: string } } = {
-  0: { label: 'CREATED - Awaiting Funding', color: 'bg-yellow-100 text-yellow-800 border-yellow-300' },
-  1: { label: 'ESCROWED - Funded', color: 'bg-blue-100 text-blue-800 border-blue-300' },
-  2: { label: 'EXECUTED', color: 'bg-green-100 text-green-800 border-green-300' },
-  3: { label: 'PAYMENT ACKNOWLEDGED', color: 'bg-purple-100 text-purple-800 border-purple-300' },
-  4: { label: 'EXPIRED', color: 'bg-gray-100 text-gray-800 border-gray-300' },
-  5: { label: 'COMPLETED', color: 'bg-green-100 text-green-800 border-green-300' }
+const STATE_LABELS: { [key: number]: { label: string; color: string; darkColor: string } } = {
+  0: { label: 'CREATED - Awaiting Funding', color: 'bg-yellow-100 text-yellow-800 border-yellow-300', darkColor: 'dark:bg-yellow-900/30 dark:text-yellow-300 dark:border-yellow-700' },
+  1: { label: 'ESCROWED - Funded', color: 'bg-blue-100 text-blue-800 border-blue-300', darkColor: 'dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700' },
+  2: { label: 'EXECUTED', color: 'bg-green-100 text-green-800 border-green-300', darkColor: 'dark:bg-green-900/30 dark:text-green-300 dark:border-green-700' },
+  3: { label: 'PAYMENT ACKNOWLEDGED', color: 'bg-purple-100 text-purple-800 border-purple-300', darkColor: 'dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700' },
+  4: { label: 'EXPIRED', color: 'bg-gray-100 text-gray-800 border-gray-300', darkColor: 'dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600' },
+  5: { label: 'COMPLETED', color: 'bg-green-100 text-green-800 border-green-300', darkColor: 'dark:bg-green-900/30 dark:text-green-300 dark:border-green-700' }
 }
 
 interface EscrowTrade {
@@ -81,38 +81,38 @@ export const MarketplaceApp: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      {/* Header */}
+      {/* Header - DARK MODE SUPPORT */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           🚀 Escrow V5 Marketplace
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-300">
           Browse and fund trade opportunities from the Escrow V5 contract
         </p>
-        <div className="mt-2 text-sm text-gray-500">
-          Contract: <span className="font-mono font-semibold text-blue-600">App ID {ESCROW_APP_ID}</span>
+        <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          Contract: <span className="font-mono font-semibold text-blue-600 dark:text-blue-400">App ID {ESCROW_APP_ID}</span>
           {' • '}
           <a 
             href={`https://testnet.explorer.perawallet.app/application/${ESCROW_APP_ID}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 underline"
+            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
           >
             View on Explorer ↗
           </a>
         </div>
         
-        {/* Demo Currency Info */}
+        {/* Demo Currency Info - DARK MODE SUPPORT */}
         {DEMO_CONFIG.DEMO_MODE && (
-          <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <div className="mt-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-4">
             <div className="flex items-start gap-2">
               <span className="text-xl">💡</span>
               <div>
-                <div className="font-semibold text-amber-900 text-sm">Demo Mode Active</div>
-                <div className="text-amber-700 text-sm mt-1">
+                <div className="font-semibold text-amber-900 dark:text-amber-300 text-sm">Demo Mode Active</div>
+                <div className="text-amber-700 dark:text-amber-400 text-sm mt-1">
                   All amounts shown in both USD and ALGO. Demo rate: <strong>${(DEMO_CONFIG.USD_PER_ALGO / 1000).toFixed(0)}k USD = 1 ALGO</strong>
                 </div>
-                <div className="text-amber-600 text-xs mt-1">
+                <div className="text-amber-600 dark:text-amber-500 text-xs mt-1">
                   This makes testnet transactions affordable for demonstration.
                 </div>
               </div>
@@ -121,63 +121,63 @@ export const MarketplaceApp: React.FC = () => {
         )}
       </div>
 
-      {/* Success/Error Messages */}
+      {/* Success/Error Messages - DARK MODE SUPPORT */}
       {success && (
-        <div className="mb-6 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+        <div className="mb-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 text-green-800 dark:text-green-300 px-4 py-3 rounded-lg">
           {success}
         </div>
       )}
 
       {error && (
-        <div className="mb-6 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+        <div className="mb-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 text-red-800 dark:text-red-300 px-4 py-3 rounded-lg">
           ⚠️ {error}
         </div>
       )}
 
-      {/* Stats */}
+      {/* Stats - DARK MODE SUPPORT */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="text-sm text-gray-600 mb-1">Total Trades</div>
-          <div className="text-2xl font-bold text-gray-900">{trades.length}</div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 p-6 border border-transparent dark:border-gray-700">
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Trades</div>
+          <div className="text-2xl font-bold text-gray-900 dark:text-white">{trades.length}</div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="text-sm text-gray-600 mb-1">Awaiting Funding</div>
-          <div className="text-2xl font-bold text-yellow-600">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 p-6 border border-transparent dark:border-gray-700">
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Awaiting Funding</div>
+          <div className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">
             {trades.filter(t => t.state === TRADE_STATES.CREATED).length}
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="text-sm text-gray-600 mb-1">Funded</div>
-          <div className="text-2xl font-bold text-blue-600">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 p-6 border border-transparent dark:border-gray-700">
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Funded</div>
+          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
             {trades.filter(t => t.state === TRADE_STATES.ESCROWED).length}
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="text-sm text-gray-600 mb-1">Completed</div>
-          <div className="text-2xl font-bold text-green-600">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 p-6 border border-transparent dark:border-gray-700">
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Completed</div>
+          <div className="text-2xl font-bold text-green-600 dark:text-green-400">
             {trades.filter(t => t.state === TRADE_STATES.COMPLETED).length}
           </div>
         </div>
       </div>
 
-      {/* Trades List */}
-      <div className="bg-white shadow rounded-lg overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900">Available Trades</h2>
-          <p className="text-sm text-gray-500 mt-1">
+      {/* Trades List - DARK MODE SUPPORT */}
+      <div className="bg-white dark:bg-gray-800 shadow dark:shadow-gray-900/50 rounded-lg overflow-hidden border border-transparent dark:border-gray-700">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Available Trades</h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
             Live trades from Escrow V5 smart contract
           </p>
         </div>
 
-        <div className="divide-y divide-gray-200">
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
           {trades.length === 0 ? (
             <div className="p-12 text-center">
-              <div className="text-gray-400 text-lg mb-2">📦</div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No trades found</h3>
-              <p className="text-gray-500 mb-4">
+              <div className="text-gray-400 dark:text-gray-500 text-lg mb-2">📦</div>
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No trades found</h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-4">
                 No trades have been created in the Escrow V5 contract yet.
               </p>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-400 dark:text-gray-500">
                 Create a trade in the Buyer Dashboard to see it listed here!
               </p>
             </div>
@@ -191,22 +191,22 @@ export const MarketplaceApp: React.FC = () => {
               const canExecute = trade.state === TRADE_STATES.ESCROWED && isSeller
 
               return (
-                <div key={trade.tradeId} className="p-6 hover:bg-gray-50 transition-colors">
+                <div key={trade.tradeId} className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                           Trade #{trade.tradeId}
                         </h3>
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-medium border ${
                             STATE_LABELS[trade.state]?.color || 'bg-gray-100 text-gray-800'
-                          }`}
+                          } ${STATE_LABELS[trade.state]?.darkColor || 'dark:bg-gray-800 dark:text-gray-300'}`}
                         >
                           {STATE_LABELS[trade.state]?.label || 'UNKNOWN'}
                         </span>
                       </div>
-                      <div className="text-sm text-gray-600 space-y-1">
+                      <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
                         <div>
                           <span className="font-medium">Product:</span> {trade.productType}
                         </div>
@@ -220,7 +220,7 @@ export const MarketplaceApp: React.FC = () => {
                               {trade.buyer.slice(0, 6)}...{trade.buyer.slice(-6)}
                             </span>
                             {isBuyer && (
-                              <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
+                              <span className="ml-2 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-0.5 rounded">
                                 You
                               </span>
                             )}
@@ -231,49 +231,49 @@ export const MarketplaceApp: React.FC = () => {
                               {trade.seller.slice(0, 6)}...{trade.seller.slice(-6)}
                             </span>
                             {isSeller && (
-                              <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">
+                              <span className="ml-2 text-xs bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-0.5 rounded">
                                 You
                               </span>
                             )}
                           </div>
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
                           Created: {formatDate(trade.createdAt)}
                         </div>
                       </div>
                     </div>
 
-                    {/* Amount & Action */}
+                    {/* Amount & Action - DARK MODE SUPPORT */}
                     <div className="ml-6 text-right">
                       <div className="mb-3">
                         {/* Dual Currency Display */}
-                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200">
-                          <div className="text-xs text-gray-600 mb-2">TRADE VALUE</div>
+                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                          <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">TRADE VALUE</div>
                           <div className="space-y-2">
                             <div>
-                              <div className="text-xs text-gray-500">USD Value</div>
-                              <div className="text-xl font-bold text-gray-900">
+                              <div className="text-xs text-gray-500 dark:text-gray-400">USD Value</div>
+                              <div className="text-xl font-bold text-gray-900 dark:text-white">
                                 {formatUsd(getUsdValue(trade.amount))}
                               </div>
                             </div>
                             <div>
-                              <div className="text-xs text-gray-500">Settlement</div>
-                              <div className="text-lg font-bold text-blue-600">
+                              <div className="text-xs text-gray-500 dark:text-gray-400">Settlement</div>
+                              <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
                                 {formatMicroAlgo(trade.amount)}
                               </div>
                             </div>
                           </div>
-                          <div className="text-xs text-gray-500 mt-2 text-center">
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
                             {Number(trade.amount).toLocaleString()} μALGO
                           </div>
                         </div>
                         {canFund && (
-                          <div className="text-xs text-gray-500 mt-3 space-y-1 text-left">
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-3 space-y-1 text-left">
                             <div className="flex justify-between">
                               <span>Fee:</span>
                               <span>{formatMicroAlgo(fee)}</span>
                             </div>
-                            <div className="flex justify-between font-semibold pt-1 border-t border-gray-300">
+                            <div className="flex justify-between font-semibold pt-1 border-t border-gray-300 dark:border-gray-600">
                               <span>Total:</span>
                               <span>{formatMicroAlgo(totalCost)}</span>
                             </div>
@@ -287,8 +287,8 @@ export const MarketplaceApp: React.FC = () => {
                           disabled={fundingTradeId === trade.tradeId}
                           className={`px-6 py-2 rounded-lg font-medium text-white transition-colors ${
                             fundingTradeId === trade.tradeId
-                              ? 'bg-gray-400 cursor-not-allowed'
-                              : 'bg-blue-600 hover:bg-blue-700'
+                              ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
+                              : 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600'
                           }`}
                         >
                           {fundingTradeId === trade.tradeId ? (
@@ -303,32 +303,32 @@ export const MarketplaceApp: React.FC = () => {
                       ) : canExecute && activeAddress ? (
                         <button
                           onClick={() => alert('Execute Trade functionality coming soon!')}
-                          className="px-6 py-2 rounded-lg font-medium text-white bg-green-600 hover:bg-green-700 transition-colors"
+                          className="px-6 py-2 rounded-lg font-medium text-white bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 transition-colors"
                         >
                           🚀 Execute Trade
                         </button>
                       ) : !activeAddress ? (
-                        <div className="text-xs text-gray-500">Connect wallet to interact</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Connect wallet to interact</div>
                       ) : trade.state === TRADE_STATES.ESCROWED ? (
-                        <div className="text-sm text-green-600 font-medium">✓ Funded - Awaiting Execution</div>
+                        <div className="text-sm text-green-600 dark:text-green-400 font-medium">✓ Funded - Awaiting Execution</div>
                       ) : trade.state === TRADE_STATES.EXECUTED ? (
-                        <div className="text-sm text-purple-600 font-medium">⚡ Executed</div>
+                        <div className="text-sm text-purple-600 dark:text-purple-400 font-medium">⚡ Executed</div>
                       ) : trade.state === TRADE_STATES.COMPLETED ? (
-                        <div className="text-sm text-green-600 font-medium">✅ Completed</div>
+                        <div className="text-sm text-green-600 dark:text-green-400 font-medium">✅ Completed</div>
                       ) : null}
                     </div>
                   </div>
 
-                  {/* Additional Info */}
+                  {/* Additional Info - DARK MODE SUPPORT */}
                   {trade.escrowProvider !== '0'.repeat(58) && (
-                    <div className="mt-4 pt-4 border-t border-gray-200">
-                      <div className="text-xs text-gray-600">
+                    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                      <div className="text-xs text-gray-600 dark:text-gray-400">
                         <span className="font-medium">Funded by:</span>{' '}
                         <span className="font-mono">
                           {trade.escrowProvider.slice(0, 10)}...{trade.escrowProvider.slice(-10)}
                         </span>
                         {trade.escrowProvider === activeAddress && (
-                          <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">
+                          <span className="ml-2 text-xs bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-0.5 rounded">
                             You
                           </span>
                         )}
